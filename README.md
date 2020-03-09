@@ -28,7 +28,7 @@ Since beer is one of the most consumed drinks between Ironhackers 🍻 , our mis
 
 ## Introduction
 
-We will be building a React app so the API (server) needs to be built somewhere for us, right? You are completely right, it's deployed on *heroku* and the root fo the API is: **`https://ih-beer-api.herokuapp.com/beers`**.
+We will be building a React app so the API (server) needs to be built somewhere for us, right? You are completely right, it's deployed on *heroku* and the root fo the API is: **`https://ih-beers-api2.herokuapp.com/beers`**.
 The available endpoints are the following:
 
 | Method | Endpoint | Response (200)     | Action |
@@ -122,7 +122,7 @@ Again, we **strongly recommend to console log the response from the API**.
 
 ### Iteration 6: Random Beer
 
-On the `/random-beer` route, we will render a single beer that will be retrieved from the database. The endpoint will do all the job for us, all we need to do is to call `https://ih-beer-api.herokuapp.com/beers/random`. We should receive an object including all the info about a beer.
+On the `/random-beer` route, we will render a single beer that will be retrieved from the database. The endpoint will do all the job for us, all we need to do is to call `https://ih-beers-api2.herokuapp.com/beers/random`. We should receive an object including all the info about a beer.
 The same way we did with the **Single Beer** view, we should render the following fields:
 
   - `image`
@@ -150,7 +150,7 @@ Finally, on the `/new-beer` route (remember, this is you react route, you're dis
   - **contributed_by** - must be type *text*
 
 Why we pointed out the type? Well, since we already console log response from the API, we could notice that all the fields are strings but *attenuation_level*, which is number. Using our knowledge from module II, we can make conclusion that in the *beer model* all the properties are type *String* except *attenuation_level*, which is type *Number*.
-When you have built the form, you should do a `POST` request to `https://ih-beer-api.herokuapp.com/beers/new`, passing all the data on the `body` object. If everything went ok, you would receive a **200** response from the server.
+When you have built the form, you should do a `POST` request to `https://ih-beers-api2.herokuapp.com/beers/new`, passing all the data on the `body` object. If everything went ok, you would receive a **200** response from the server.
 
 Notice that the fields on the `body` should have those specific **names** so the API can create a new beer.
 
@@ -164,7 +164,7 @@ Since we didn't cover how to upload images yet, don't worry about it now - the A
 
 ### (Extra) Bonus Iteration: Filter the Beers
 
-Yes! One endpoint left! On the `/beers` route, add an `input` where users can search for beers. Every time a new letter is typed, you should call to `https://ih-beer-api.herokuapp.com/beers/search?q={query}` passing the value of the input in the `q` param.
+Yes! One endpoint left! On the `/beers` route, add an `input` where users can search for beers. Every time a new letter is typed, you should call to `https://ih-beers-api2.herokuapp.com/beers/search?q={query}` passing the value of the input in the `q` param.
 
 **We are done!** :trophy:
 
