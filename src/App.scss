@@ -1,0 +1,175 @@
+.App {
+
+  /*
+   ######   #######  ##     ## ##     ##  #######  ##    ## 
+  ##    ## ##     ## ###   ### ###   ### ##     ## ###   ## 
+  ##       ##     ## #### #### #### #### ##     ## ####  ## 
+  ##       ##     ## ## ### ## ## ### ## ##     ## ## ## ## 
+  ##       ##     ## ##     ## ##     ## ##     ## ##  #### 
+  ##    ## ##     ## ##     ## ##     ## ##     ## ##   ### 
+   ######   #######  ##     ## ##     ##  #######  ##    ## 
+  */
+
+  a {text-decoration:inherit; color:inherit;}
+
+  svg.icon {
+    width:1em; height:1em;
+    fill:currentColor;
+  }
+  
+  --ironblue:#4bc4fb;
+  --pad:1rem;
+  --grey:#ccc;
+
+  /*
+  Loader
+  */
+  display:flex; flex-direction:column; min-height:100vh;
+  >main {
+    flex:1;
+
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .Loader {text-align:center;}
+
+  /*
+  btn
+  */
+  .btn {
+    display:inline-block;
+    background-color:var(--ironblue);color:white;
+    line-height:1.5;
+    padding:.5em 1em;
+    border:0; border-radius:99em;
+  }
+  button.btn {font:inherit;}
+
+
+  header {
+    background:var(--ironblue); color:white;
+    text-align:center; overflow:hidden;
+
+    h1 {font-size:100%;}
+
+    svg.icon {font-size:200%; vertical-align:bottom;}
+  }
+
+  /*
+  ##     ##  #######  ##     ## ######## 
+  ##     ## ##     ## ###   ### ##       
+  ##     ## ##     ## #### #### ##       
+  ######### ##     ## ## ### ## ######   
+  ##     ## ##     ## ##     ## ##       
+  ##     ## ##     ## ##     ## ##       
+  ##     ##  #######  ##     ## ######## 
+  */
+  &[data-route="/"] {
+    header {display:none;}
+
+    span {display:block; font-size:150%; margin-top:.5rem;margin-bottom:.5rem;}
+    p {margin-top:0;}
+
+    article span {padding-left:var(--pad);}
+    article p {padding-left:var(--pad);padding-right:var(--pad);}
+  }
+ 
+  /*
+  ########  ######## ######## ########   ######  
+  ##     ## ##       ##       ##     ## ##    ## 
+  ##     ## ##       ##       ##     ## ##       
+  ########  ######   ######   ########   ######  
+  ##     ## ##       ##       ##   ##         ## 
+  ##     ## ##       ##       ##    ##  ##    ## 
+  ########  ######## ######## ##     ##  ######  
+  */
+
+  &[data-route="/beers"] {
+    .BeerList {
+      ul {list-style:none; padding-left:0;}
+  
+      li {display:flex; padding:1em; border-bottom:1px solid;}
+      li img {
+        --img-width:8em;
+        width:var(--img-width);height:var(--img-width); object-fit:contain;
+      }
+  
+      div p:last-child {margin-bottom:0;}
+  
+      li strong {font-size:150%; line-height:1;}
+    }
+  }
+  
+  /*
+  ########  ######## ######## ########        ## ########     ###    ##    ## ########   #######  ##     ## 
+  ##     ## ##       ##       ##     ##      ##  ##     ##   ## ##   ###   ## ##     ## ##     ## ###   ### 
+  ##     ## ##       ##       ##     ##     ##   ##     ##  ##   ##  ####  ## ##     ## ##     ## #### #### 
+  ########  ######   ######   ########     ##    ########  ##     ## ## ## ## ##     ## ##     ## ## ### ## 
+  ##     ## ##       ##       ##   ##     ##     ##   ##   ######### ##  #### ##     ## ##     ## ##     ## 
+  ##     ## ##       ##       ##    ##   ##      ##    ##  ##     ## ##   ### ##     ## ##     ## ##     ## 
+  ########  ######## ######## ##     ## ##       ##     ## ##     ## ##    ## ########   #######  ##     ## 
+  */
+
+  &[data-route^="/beers/"],
+  &[data-route="/random-beer"] {
+    main {padding:var(--pad);}
+
+    img {
+      height:20em;
+      display:block; margin-left:auto;margin-right:auto;
+    }
+
+    .header {
+      display:flex;
+      dl {margin-left:auto; text-align:right;}
+
+      h2 {margin-bottom:0;}
+      h2 +p {margin-top:0;}
+
+      p {font-style:italic; color:var(--grey);}
+
+      dd.attenuation_level {font-size:150%; color:var(--grey);}
+      dd.first_brewed {font-weight:bold;}
+    }
+
+    p.copy {color:var(--grey);}
+  }
+
+  /*
+  ##    ## ######## ##      ## 
+  ###   ## ##       ##  ##  ## 
+  ####  ## ##       ##  ##  ## 
+  ## ## ## ######   ##  ##  ## 
+  ##  #### ##       ##  ##  ## 
+  ##   ### ##       ##  ##  ## 
+  ##    ## ########  ###  ###  
+  */
+  &[data-route="/new-beer"] {
+    main {padding:var(--pad);}
+
+    form {
+      label em {
+        font-style:inherit;
+        margin-left:1rem;
+
+        font-size:80%; font-weight:bold;
+      }
+
+      input:not([type="radio"]):not([type="checkbox"]),
+      textarea {
+        font:inherit;
+
+        display:block; width:100%;
+        border:1px solid;
+        line-height:1.5;
+        padding:.35em;
+
+        border-radius:1.5em; border-color:var(--grey);
+        margin-top:.25em;
+      }
+
+      textarea {height:10em;}
+
+      button {width:100%;}
+    }
+  }
+}
